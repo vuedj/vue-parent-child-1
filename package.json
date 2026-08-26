@@ -9,7 +9,7 @@
         "preview": "vite preview",
         "lint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx,vue}'",
         "type-check": "vue-tsc -b",
-        "prettier": "npx prettier . --write",
+        "prettier": "pnx prettier . --write",
         "format": "pnpm type-check && pnpm lint && pnpm prettier"
     },
     "dependencies": {
