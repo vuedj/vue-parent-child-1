@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import Form from '@/components/Form.vue'
 import { ref } from 'vue'
 
-const name = ref('')
+const name = ref<string>('')
 
-const handleReset = (val) => {
-    name.value = val
+const handleReset = (value: string) => {
+    name.value = value
 }
 
 const handleClick = () => {

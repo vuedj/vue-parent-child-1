@@ -1,15 +1,14 @@
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { defineConfig } from 'vite'
-import eslintPlugin from 'vite-plugin-eslint'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue(), eslintPlugin(), vueDevTools()],
+    plugins: [vue(), vueDevTools()],
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@': path.resolve(import.meta.dirname, './src'),
         },
     },
 })

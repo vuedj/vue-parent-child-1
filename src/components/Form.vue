@@ -1,17 +1,20 @@
-<script setup>
-import { watch, ref } from 'vue'
+<script setup lang="ts">
+import { ref, watch } from 'vue'
 
-const name = ref('')
+const name = ref<string>('')
 
-const emit = defineEmits(['resetInput'])
+const emit = defineEmits<{
+    resetInput: [value: string]
+}>()
 
-const props = defineProps({
-    resetNameValue: {
-        type: String,
-        required: true,
-        default: '',
+const props = withDefaults(
+    defineProps<{
+        resetNameValue?: string
+    }>(),
+    {
+        resetNameValue: '',
     },
-})
+)
 
 watch(
     () => props.resetNameValue,
@@ -38,6 +41,7 @@ watch(
                 />
             </label>
         </form>
+
         <p
             v-if="name"
             class="para"
@@ -53,6 +57,7 @@ watch(
     padding: 20px;
     border-radius: 8px;
     margin-top: -60px;
+    min-height: 150px;
 }
 .para {
     margin-top: 10px;

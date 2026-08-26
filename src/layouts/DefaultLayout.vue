@@ -1,16 +1,17 @@
 <template>
     <div class="container">
-        <router-link :to="{ name: 'Home' }">Home</router-link> |
+        <router-link :to="{ name: 'Home' }">Home</router-link>
+        |
         <router-link :to="{ name: 'About' }">About</router-link>
         <div class="view">
             <router-view />
             <div></div>
         </div>
         <div class="footer">
-            <strong
-                >Note: This is a scenario where the parent component resets the
-                input field in the child component.</strong
-            >
+            <strong>
+                Note: This is a scenario where the parent component resets the
+                input field in the child component.
+            </strong>
         </div>
     </div>
 </template>
