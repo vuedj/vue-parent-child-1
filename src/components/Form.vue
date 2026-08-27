@@ -1,25 +1,21 @@
 <script setup lang="ts">
+import type { Props, SubmitAction } from '@/types'
 import { ref, watch } from 'vue'
 
 const name = ref<string>('')
 
 const emit = defineEmits<{
-    resetInput: [value: string]
+    resetInput: [value: SubmitAction]
 }>()
 
-const props = withDefaults(
-    defineProps<{
-        resetNameValue?: string
-    }>(),
-    {
-        resetNameValue: '',
-    },
-)
+const props = withDefaults(defineProps<Props>(), {
+    resetNameValue: '',
+})
 
 watch(
     () => props.resetNameValue,
-    (newVal) => {
-        if (newVal === 'reset') {
+    (newValue) => {
+        if (newValue === 'reset') {
             name.value = ''
             emit('resetInput', '')
         }

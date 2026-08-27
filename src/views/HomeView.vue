@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import Form from '@/components/Form.vue'
 import { ref } from 'vue'
+import Form from '@/components/Form.vue'
+import type { SubmitAction } from '@/types'
 
-const name = ref<string>('')
+const name = ref<SubmitAction>('')
 
-const handleReset = (value: string) => {
+const handleReset = (value: SubmitAction) => {
     name.value = value
 }
 
